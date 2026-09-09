@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<!-- Compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+<!-- Compiled and minified JavaScript -->
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<meta charset="UTF-8">
+<title>Eventos</title>
+</head>
+<body>
+	<div th:replace="~{menu :: menu}"></div>
+	<div class="container">
+		<h1>Lista de Eventos</h1>
+
+		<table>
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Nome</th>
+					<th>Local</th>
+					<th>Data</th>
+					<th>Horário</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="e : ${eventos}">
+					 <td><a th:href="@{/eventos/{id}(id=${e.id})}"><span th:text="${e.id}">1</span></a></td>
+					<td><a href="#"><span th:text="${e.nome}">Aniversário de joão</span></a></td>
+					<td><a href="#"><span th:text="${e.local}">Clube</span></a></td>
+					<td><a href="#"><span th:text="${e.data}">25/02/2021</span></a></td>
+					<td><a href="#"><span th:text="${e.horario}">19:00</span></a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>
